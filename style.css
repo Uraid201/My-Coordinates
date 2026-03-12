@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite;
+    text-align: center;
+    margin-top: 100px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #54b66d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #3f9455;
+}
+
+.ti {
+    color: brown;
+
+}
+.lat, .long {
+    font-size: 22px;
+    margin-top: 20px;
+    color: brown;
+    font-weight: bold !important;
+    font-family: sans-serif;
+    
+}
+.footer {
+    margin-top: auto;
+    font-size: 14px;
+    color: #555;
+}
