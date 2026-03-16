@@ -7,12 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="navbar">
+    <h2 class="logo">Coordinates tool</h2>
+        
+    </header> 
+    <div class="container">
+        
+
 <h2 class="ti">My Coordinates</h2>
 <button onclick="getlocation()">Get Location</button>
 <button onclick="copyCoordinates()">Copy Coordinates</button>
+<button onclick="clearCoordinates()">Clear</button>
+<p class="status">status: <span id="status"></span></p>
 <p class="lat">latitude: <span id="lat"></span></p>
 <p class="long">longitude: <span id="long"></span></p>
 
+    </div>
 <script src="javascript.js" defer></script>
 
 <footer>
