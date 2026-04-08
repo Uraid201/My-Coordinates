@@ -1,3 +1,11 @@
+//check the internet connection
+function checkInternet() {
+    if (navigator.onLine) {
+        setStatus("You are online.", "success");
+    } else {
+        setStatus("You are offline. Please check your internet connection.", "error");
+    }
+}
 
 //get location
 function getLocation() {
