@@ -1,6 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #273a50, #1b263b, #485c8e);
+    background-size: 400% 400%;
+    animation: softBG 6s ease infinite;
     text-align: center;
     margin: 0;
     min-height: 100vh;
@@ -8,23 +10,45 @@ body {
     flex-direction: column;
     
 }
+@keyframes softBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .navbar {
     background-color: #577dde;
     width: 100%;
-    padding: 18px 0;
+    padding: 15px 0;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 .logo {
     color: white;
     text-align: center;
     margin: 0%;
     font-size: 40px;
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     text-align: center ;
 }       
@@ -36,34 +60,48 @@ body {
 }
 button {
     padding: 10px 20px;
-    font-size: 16px;
+    margin: 5px;
+    font-size: 15px;
     cursor: pointer;
     background-color: #577dde;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
 button:hover {
     background-color: #09a5f0;
+    transform: translateY(-3px);
 }
 
 .ti {
-    color: #F93A43;
+    color: #f6f2f3;
 
 }
+/* red color: #F93A43; */
 .lat, .long {
     font-size: 22px;
     margin-top: 20px;
-    color: #F93A43;
+    color: #f7f3f4;
     font-weight: bold ;
     font-family: sans-serif;
     
 }
+/*color: #555;*/
 .footer {
     margin-top: auto;
     font-size: 14px;
-    color: #555;
+    color: #577dde;
+    animation: fadecolor 3s infinite alternate;
+}
+@keyframes fadecolor {
+   from {
+        color: #577dde;
+    }
+    to {
+        color: #f93a43;
+    }
 }
 
 
