@@ -2,8 +2,12 @@
 //get location
 function getLocation() {
     if (navigator.geolocation) {
-        setStatus("Fetching location...,loading");
-        navigator.geolocation.getCurrentPosition(showposition, showError);
+       setStatus("Fetching location...", "loading");
+        navigator.geolocation.getCurrentPosition(showposition, showError, {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        });
         
     } else {
         alert("Geolocation is not supported by this browser.");
@@ -11,16 +15,34 @@ function getLocation() {
     }
 }
 function showError(error) {
-    setStatus("Error fetching location: " + error.message, "error");
+    if (error.code === 1) {
+        setStatus("Permission denied.", "error");
+    } else if (error.code === 2) {
+        setStatus("Location unavailable.", "error");
+    } else if (error.code === 3) {
+        setStatus("Request timeout.", "error");
+    }
 }
+
 
 //display coordinates
 
 function showposition(position) {
+    const accuracy = position.coords.accuracy;
+    if (accuracy > 50) {
+        setStatus(`Location is approximate, for better accuracy please use a gps device.`, "error");
+    }
+    else {        setStatus(`Location fetched successfully.`, "success");
+    }
     document.getElementById("long").textContent = position.coords.longitude;
     document.getElementById("lat").textContent = position.coords.latitude;
-        setStatus("Location fetched successfully.", "success");
-}
+       
+   const lat = position.coords.latitude;
+const long = position.coords.longitude;
+
+document.getElementById("map").src =
+`https://maps.google.com/maps?q=${lat},${long}&z=15&output=embed`;
+};
 //copy
 function copyCoordinates() {
     const latitude = document.getElementById("lat").textContent;
