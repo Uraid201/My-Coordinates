@@ -6,6 +6,13 @@ function checkInternet() {
         setStatus("You are offline. Please check your internet connection.", "error");
     }
 }
+function defaultmap() {
+const defaultMap = "https://maps.google.com/maps?center=25,45&z=22&output=embed";
+}
+window.onload = function() {
+    document.getElementById("map").src =
+    "https://maps.google.com/maps?center=25,45&z=22&output=embed";
+};
 
 //get location
 function getLocation() {
@@ -51,6 +58,7 @@ const long = position.coords.longitude;
 document.getElementById("map").src =
 `https://maps.google.com/maps?q=${lat},${long}&z=15&output=embed`;
 };
+
 //copy
 function copyCoordinates() {
     const latitude = document.getElementById("lat").textContent;
@@ -75,6 +83,8 @@ function copyCoordinates() {
 function clearCoordinates() {
     document.getElementById("lat").textContent = "";
     document.getElementById("long").textContent = "";
+    document.getElementById("map").src =
+    "https://maps.google.com/maps?center=25,45&z=22&output=embed";
     setStatus("Coordinates cleared.", "cleared");
 };   
 
@@ -85,4 +95,19 @@ function setStatus(text,type) {
     statusElement.textContent = text;
     statusElement.classList.remove("copied", "success", "error", "loading", "cleared");
     statusElement.classList.add(type);
+}
+
+function openInGoogleMaps() {
+const lat = document.getElementById("lat").textContent;
+const long = document.getElementById("long").textContent;
+
+if (!lat || !long) {
+    setStatus("No coordinates to open.", "error");
+    return;
+}
+else {
+
+    const url = `https://www.google.com/maps?q=${lat},${long}`;
+window.open(url, "_blank");
+}
 }
