@@ -2,7 +2,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(-45deg,  #225760, #29365b, #361a4f);
     background-size: 400% 400%;
-    animation: softBG 5s ease infinite;
+    animation: softBG 6s ease infinite;
     text-align: center;
     margin: 0;
     min-height: 100vh;
@@ -30,33 +30,156 @@ body {
         transform: translateY(0);
     }
 }
+.top-bar {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    padding: 12px 20px;
+   flex-wrap: wrap;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 12px 20px;
 
+    background: rgba(255, 255, 255, 0.15); /* شفاف */
+    backdrop-filter: blur(10px); /* تأثير زجاج */
+    -webkit-backdrop-filter: blur(10px);
+
+    border-radius: 12px;
+    width: fit-content; 
+    margin: 10px;
+}
+
+.logo {
+    font-weight: bold;
+    color: white;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+
+/* moblie view */
+@media (max-width: 600px) {
+    html,body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    iframe {
+        width: 90% !important;
+        display: block;
+    }
+
+    body {
+        padding: 0;
+        margin: 0
+    }
+
+  
+    .container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-bar {
+        width: 100%;
+        margin: 0;
+        padding: 0px;
+        border-radius: 0;
+    }
+
+    .navbar {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .map {
+    border-radius: 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+     width: 100vw !important;
+        text-align: center;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto !important;
+    }
+   #map {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+}
+    .status-box {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
+/*
 .navbar {
     background-color: #577dde;
     width: 100%;
-    padding: 15px 0;
-    color: white;
+    padding: 12px 20px;
+    gap: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
+
 .logo {
     color: white;
-    text-align: center;
+    text-align: left;
     margin: 0%;
+    margin-right: 40px;
     font-size: 40px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     text-align: center ;
-}       
+    }   
+    */
+    
 .container {
     max-width: 1200px;
     margin: auto;
     width: 100%;
     flex: 1;
+}
+/* .btn-group {
+    display: flex;
+    gap: 10px;
+    }
+   */
+   
+
+.button1{
+    padding: 8px 12px;
+    margin-left: 8px;
+    cursor: pointer;
+    background-color: #324a87;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    
 }
 button {
     padding: 10px 20px;
@@ -68,6 +191,12 @@ button {
     border: none;
     border-radius: 10px;
     transition: 0.3s;
+     background: rgba(255, 255, 255, 0.15); /* شفاف */
+    backdrop-filter: blur(10px); /* تأثير زجاج */
+    -webkit-backdrop-filter: blur(10px);
+
+    border-radius: 12px;
+    width: fit-content; 
 }
 
 button:hover {
@@ -81,11 +210,11 @@ button:hover {
 }
 /* red color: #F93A43; */
 .lat, .long {
-    font-size: 22px;
+    font-size: 16px;
     margin-top: 20px;
     color: #f7f3f4;
     font-weight: bold ;
-    font-family: sans-serif;
+    font-family: monospace;
     
 }
 /*color: #555;*/
@@ -110,7 +239,9 @@ button:hover {
     color: white;
     padding: 10px 20px;
     border-radius: 6px;
-    background-color: #577dde;
+    background: rgba(255, 255, 255, 0.15); /* شفاف */
+    backdrop-filter: blur(10px); /* تأثير زجاج */
+    -webkit-backdrop-filter: blur(10px);
     font-size: 16px;
     border: none;
 
@@ -122,17 +253,29 @@ button:hover {
 }
 .error {
     background-color: #d9534f;
+    background: rgba(218, 20, 20, 0.645); /* شفاف */
+    backdrop-filter: blur(10px); /* تأثير زجاج */
     color: white;
 }
 .success {
     background-color: #5cb85c;
+        background: rgba(20, 218, 53, 0.645); /* شفاف */
+    backdrop-filter: blur(10px); /* تأثير زجاج */
     color: white;   
 }   
 .copied {
-    background-color: #5bc0de;
+    background-color: #5bdade;
+    background: rgba(20, 195, 218, 0.645); /* شفاف */
+    backdrop-filter: blur(10px); /* تأثير زجاج */
     color: white;
 }   
 .cleared {
     background-color: #f19b08;
+    background: rgba(228, 177, 23, 0.645); /* شفاف */
+    backdrop-filter: blur(10px); /* تأثير زجاج */
     color: white;
+}
+.map {
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
