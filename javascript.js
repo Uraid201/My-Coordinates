@@ -81,6 +81,10 @@ function copyCoordinates() {
 //clear
 }
 function clearCoordinates() {
+    if (!document.getElementById("lat").textContent && !document.getElementById("long").textContent) {
+        setStatus("No coordinates to clear.", "error");
+        return;
+    }
     document.getElementById("lat").textContent = "";
     document.getElementById("long").textContent = "";
     document.getElementById("map").src =
